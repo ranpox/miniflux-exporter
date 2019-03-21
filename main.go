@@ -7,9 +7,10 @@ import (
 	"strconv"
 	"time"
 
+    miniflux "miniflux.app/client"
+
 	humanize "github.com/dustin/go-humanize"
 	"github.com/gorilla/feeds"
-	"github.com/miniflux/miniflux-go"
 	"github.com/sirupsen/logrus"
 )
 
@@ -32,7 +33,7 @@ func main() {
 	flag.Parse()
 
 	// get miniflux client
-	c := miniflux.NewClient(hostname, username, password)
+	c := miniflux.New(hostname, username, password)
 
 	// start export to opml
 	if len(targetOPMLFile) > 0 {
